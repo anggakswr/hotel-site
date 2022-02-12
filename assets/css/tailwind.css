@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-size: 16px;
+  font-family: 'Mulish', sans-serif;
+}
+
+.box-center {
+  @apply flex items-center justify-center;
+}
+
+.box-between {
+  @apply flex items-center justify-between;
+}
+
+input:focus {
+  @apply outline-none;
+}
+
+:root {
+  --slider-tooltip-bg: #00a1e5;
+}
