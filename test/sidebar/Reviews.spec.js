@@ -1,10 +1,16 @@
 import { mount } from '@vue/test-utils'
 import Vue from 'vue'
-import Reviews from '@/components/sidebar/Reviews.vue'
+import Filter from '~/components/sidebar/Filter.vue'
 
 describe('sidebar', () => {
-  test('clear reviews filter', async () => {
-    const wrapper = mount(Reviews)
+  test('clear sidebar filter', async () => {
+    const wrapper = mount(Filter, {
+      propsData: {
+        items: [{ id: 'asd', label: 'asd' }],
+        queryKey: 'reviews',
+        showClearBtn: true,
+      },
+    })
 
     const checkboxes = wrapper.findAll('input[type="checkbox"]')
 
@@ -13,7 +19,7 @@ describe('sidebar', () => {
 
     expect(checkboxes.at(0).element.checked).toBeTruthy()
 
-    const clearBtn = wrapper.find('button')
+    const clearBtn = wrapper.find('#clearBtn')
 
     clearBtn.trigger('click')
     await Vue.nextTick()
