@@ -15,10 +15,7 @@
   @apply flex items-center justify-between;
 }
 
-input:focus {
-  @apply outline-none;
-}
-
-:root {
-  --slider-tooltip-bg: #00a1e5;
+input:focus,
+select:focus {
+  @apply outline-none ring-0 border-none shadow-none;
 }

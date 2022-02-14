@@ -2,7 +2,10 @@
   <button
     class="date-filter-btn bg-white flex items-center justify-between h-50px rounded-3px px-4 border border-gray-brand"
   >
-    <span class="text-sm text-form">2 adults, 0 children, 1 room</span>
+    <span class="text-sm text-form"
+      >2 {{ $t('searchBar.adults') }}, 0 {{ $t('searchBar.children') }}, 1
+      {{ $t('searchBar.room') }}</span
+    >
   </button>
 </template>
 

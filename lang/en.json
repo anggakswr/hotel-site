@@ -1,0 +1,18 @@
+{
+  "header": {
+    "myAcc": "My Account",
+    "logout": "Log out"
+  },
+  "searchBar": {
+    "night": "night",
+    "adults": "adults",
+    "children": "children",
+    "room": "room",
+    "search": "search"
+  },
+  "sidebar": {
+    "showOnMap": "Show on map",
+    "pricePerNight": "Price per night",
+    "clear": "CLEAR"
+  }
+}

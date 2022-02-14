@@ -3,7 +3,13 @@
     <div class="box-between">
       <h1 class="text-sm font-bold">Price per night</h1>
 
-      <button class="text-xs font-bold text-blue-brand">CLEAR</button>
+      <button
+        id="price-clear"
+        class="text-xs font-bold text-blue-brand"
+        @click="range = [0, 0]"
+      >
+        CLEAR
+      </button>
     </div>
 
     <Slider
@@ -15,11 +21,12 @@
     />
 
     <div class="box-between">
-      <span class="price"> SGD 0 </span>
+      <!-- <span class="price"> SGD {{ range[0] }} </span> -->
+      <span class="price"> {{ $n(range[0], 'currency', currency) }} </span>
 
       <div class="w-3.5 border-t border-black" />
 
-      <span class="price"> SGD 550 </span>
+      <span class="price"> {{ $n(range[1], 'currency', currency) }} </span>
     </div>
   </section>
 </template>
@@ -33,8 +40,13 @@ export default {
   },
   data() {
     return {
-      range: [0, 50],
+      range: [0, 0],
     }
+  },
+  computed: {
+    currency() {
+      return this.$store.state.currency
+    },
   },
 }
 </script>

@@ -1,0 +1,13 @@
+{
+  "header": {
+    "myAcc": "Akunku",
+    "logout": "Keluar"
+  },
+  "searchBar": {
+    "night": "malam",
+    "adults": "dewasa",
+    "children": "anak",
+    "room": "ruangan",
+    "search": "cari"
+  }
+}

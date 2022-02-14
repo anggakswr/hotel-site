@@ -4,7 +4,13 @@
     <SidebarMap />
 
     <!-- price per night filter (range slider) -->
-    <SidebarPriceFilter />
+    <SidebarPricePerNight />
+
+    <!-- reviews filter -->
+    <SidebarReviews />
+
+    <!-- star rating filter -->
+    <SidebarStarRating />
   </aside>
 </template>
 

@@ -1,3 +1,5 @@
+import { numberFormats } from './helpers/numberFormats'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -37,6 +39,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // multilang
+    '@nuxtjs/i18n',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -47,4 +51,17 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // multilang
+  i18n: {
+    langDir: '@/lang/',
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.json' },
+      { code: 'sg', iso: 'zh-sg', file: 'sg.json' },
+    ],
+    vueI18n: {
+      numberFormats,
+    },
+  },
 }

@@ -9,7 +9,7 @@
       class="w-full bg-white flex items-center justify-between h-50px rounded-3px pr-3 pl-34px border border-gray-brand"
     >
       <span class="text-sm text-form">Jul 19 - Jul 20</span>
-      <span class="text-sm night">1 night</span>
+      <span class="text-sm text-night">1 {{ $t('searchBar.night') }}</span>
     </button>
   </div>
 </template>
@@ -19,10 +19,6 @@ export default {}
 </script>
 
 <style scoped>
-.night {
-  color: #757575;
-}
-
 .date-filter-btn {
   width: 250px;
 }

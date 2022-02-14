@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       spacing: {
         '7px': '7px',
+        '17px': '17px',
         '18px': '18px',
         '19px': '19px',
         '29px': '29px',
@@ -19,6 +20,7 @@ module.exports = {
         'blue-brand': '#002d63',
         'gray-brand': '#dddddd',
         form: '#333333',
+        night: '#757575',
       },
       borderRadius: {
         '3px': '3px',
@@ -27,7 +29,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      // backgroundColor: ['checked'],
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
