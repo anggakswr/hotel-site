@@ -15,6 +15,7 @@ module.exports = {
         '115px': '115px',
         '145px': '145px',
         '150px': '150px',
+        '250px': '250px',
       },
       colors: {
         'blue-brand': '#002d63',

@@ -24,6 +24,9 @@
     <!-- star rating filter -->
     <SidebarStarRating />
 
+    <!-- hotel name -->
+    <SidebarHotelName />
+
     <!-- reservation policy filter -->
     <SidebarFilter
       title="Reservation policy"

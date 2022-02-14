@@ -1,5 +1,5 @@
 <template>
-  <div class="relative date-filter-btn">
+  <div class="relative w-250px">
     <!-- search icon -->
     <div class="absolute inset-y-0 left-0 box-center pl-2.5">
       <img src="/img/form/search.png" alt="Search Place" />
@@ -17,9 +17,3 @@
 <script>
 export default {}
 </script>
-
-<style scoped>
-.date-filter-btn {
-  width: 250px;
-}
-</style>
