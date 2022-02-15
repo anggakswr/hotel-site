@@ -39,6 +39,7 @@
 
       <button
         v-if="firstShow && items.length > firstShow && !showAll"
+        id="showMoreBtn"
         class="flex items-center gap-x-1"
         @click="showAll = true"
       >
@@ -48,13 +49,28 @@
 
         <img src="/img/sidebar/triangle-down.png" alt="Triangle Down" />
       </button>
+
+      <button
+        v-if="firstShow && items.length > firstShow && showAll"
+        id="showLessBtn"
+        class="flex items-center gap-x-1"
+        @click="showAll = false"
+      >
+        <span class="text-xs text-blue-brand"> Show less </span>
+
+        <img
+          src="/img/sidebar/triangle-down.png"
+          alt="Triangle Up"
+          class="transform rotate-180"
+        />
+      </button>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'SidebarReviews',
+  name: 'SidebarFilter',
   props: {
     title: {
       type: String,
@@ -99,15 +115,17 @@ export default {
     },
   },
   mounted() {
-    const query = this.$route.query
+    if (this.$route && this.$route.query) {
+      const query = this.$route.query
 
-    for (const prop in query) {
-      if (Object.hasOwnProperty.call(query, prop)) {
-        if (prop === this.queryKey) {
-          if (typeof query[prop] === 'string') {
-            this.checkedItems = [query[prop]]
-          } else {
-            this.checkedItems = query[prop]
+      for (const prop in query) {
+        if (Object.hasOwnProperty.call(query, prop)) {
+          if (prop === this.queryKey) {
+            if (typeof query[prop] === 'string') {
+              this.checkedItems = [query[prop]]
+            } else {
+              this.checkedItems = query[prop]
+            }
           }
         }
       }
