@@ -4,7 +4,11 @@ module.exports = {
   theme: {
     extend: {
       spacing: {
+        '5px': '5px',
         '7px': '7px',
+        '11px': '11px',
+        '13px': '13px',
+        '15px': '15px',
         '17px': '17px',
         '18px': '18px',
         '19px': '19px',
@@ -18,6 +22,7 @@ module.exports = {
         '250px': '250px',
       },
       colors: {
+        lightblue: '#00a1e5',
         'blue-brand': '#002d63',
         'gray-brand': '#dddddd',
         form: '#333333',
