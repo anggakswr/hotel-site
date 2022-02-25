@@ -1,5 +1,5 @@
 <template>
-  <div class="col-span-1 flex flex-col justify-between">
+  <div class="col-span-1 flex flex-col justify-between items-end">
     <!-- dummy rating img -->
     <div>
       <img src="/img/index/excellent.png" alt="Dummy Rating" />

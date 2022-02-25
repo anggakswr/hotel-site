@@ -1,10 +1,17 @@
 <template>
-  <main class="w-full">
-    <p class="font-bold mb-15px">Singapore: 9999 properties found</p>
+  <main class="min-h-screen w-full flex flex-col justify-between">
+    <!-- tabbar & search items (hotel) -->
+    <section>
+      <p class="font-bold mb-15px">Singapore: 9999 properties found</p>
 
-    <IndexTabbar />
+      <IndexTabbar />
 
-    <IndexHotel />
+      <!-- this hotel component can be looped -->
+      <IndexHotel />
+    </section>
+
+    <!-- pagination -->
+    <IndexPagination />
   </main>
 </template>
 

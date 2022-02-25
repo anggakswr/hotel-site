@@ -3,7 +3,7 @@
   <header>
     <!-- logo & btns -->
     <nav
-      class="fixed top-0 inset-x-0 white-nav bg-white flex items-center justify-between px-145px duration-200"
+      class="fixed top-0 inset-x-0 white-nav bg-white hidden md:flex items-center justify-between px-145px duration-200"
     >
       <NuxtLink to="/">
         <img src="/img/logo.png" alt="Cloud Travel" />
@@ -31,7 +31,7 @@
 
     <!-- form -->
     <nav
-      class="fixed z-10 inset-x-0 bg-blue-brand px-145px py-2.5 flex gap-x-2.5 duration-200"
+      class="fixed z-10 inset-x-0 bg-blue-brand px-145px py-2.5 hidden md:flex gap-x-2.5 duration-200"
       :class="{
         // hidden: hideWhiteNav,
         'top-0': isScrolled,

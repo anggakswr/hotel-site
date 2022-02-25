@@ -1,5 +1,8 @@
 <template>
-  <aside class="sidebar flex flex-col gap-y-7px">
+  <aside
+    class="sidebar hidden md:flex flex-col gap-y-7px"
+    :style="{ marginBottom: '88px' }"
+  >
     <!-- map -->
     <SidebarMap />
 

@@ -1,5 +1,7 @@
 <template>
-  <nav class="grid grid-cols-4 divide-x divide-gray-brand mb-15px h-44px">
+  <nav
+    class="hidden md:grid grid-cols-4 divide-x divide-gray-brand mb-15px h-44px"
+  >
     <button
       v-for="(tab, index) in tabs"
       :key="'tab-' + tab.val"
