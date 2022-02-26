@@ -1,7 +1,53 @@
 <template>
   <!-- <header class="fixed z-10 top-0 inset-x-0"> -->
   <header>
-    <!-- logo & btns -->
+    <!-- mobile nav -->
+    <nav class="fixed top-0 inset-x-0 bg-white md:hidden">
+      <!-- logo & hamburger menu -->
+      <section class="h-60px box-between px-18px border-b border-gray-brand">
+        <NuxtLink to="/">
+          <img src="/img/header/mobile-logo.png" alt="Header Logo" />
+        </NuxtLink>
+
+        <button>
+          <img src="/img/header/hamburger.png" alt="Hamburger" />
+        </button>
+      </section>
+
+      <!-- search bar -->
+      <button
+        class="h-50px w-full px-15px flex items-center border-b border-gray-brand"
+      >
+        <img src="/img/form/search.png" alt="Search" class="mr-3.5" />
+
+        <span>
+          <span class="text-left text-sm font-bold">
+            Singapore, Singapore
+          </span>
+
+          <span>
+            <span class="text-xs mr-5">Aug 18 - Aug 19</span>
+            <span class="text-xs">2 adults, 1 room, 0 children</span>
+          </span>
+        </span>
+      </button>
+
+      <section class="h-50px grid grid-cols-2">
+        <button
+          class="box-center text-sm text-blue-brand border-r border-gray-brand"
+        >
+          <img src="/img/header/filter.png" alt="Filter" class="mr-3" />
+          <span>Sort & Filter</span>
+        </button>
+
+        <button class="box-center text-sm text-blue-brand">
+          <img src="/img/header/location.png" alt="Location" class="mr-3" />
+          <span>Map View</span>
+        </button>
+      </section>
+    </nav>
+
+    <!-- logo & btns (desktop) -->
     <nav
       class="fixed top-0 inset-x-0 white-nav bg-white hidden md:flex items-center justify-between px-145px duration-200"
     >
@@ -29,7 +75,7 @@
       </div>
     </nav>
 
-    <!-- form -->
+    <!-- form (desktop) -->
     <nav
       class="fixed z-10 inset-x-0 bg-blue-brand px-145px py-2.5 hidden md:flex gap-x-2.5 duration-200"
       :class="{

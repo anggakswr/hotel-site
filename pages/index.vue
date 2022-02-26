@@ -2,7 +2,16 @@
   <main class="min-h-screen w-full flex flex-col justify-between">
     <!-- tabbar & search items (hotel) -->
     <section>
-      <p class="font-bold mb-15px">Singapore: 9999 properties found</p>
+      <!-- mobile select -->
+      <div class="mx-13px">
+        <select
+          class="w-full mt-2.5 mb-15px rounded-3px h-30px text-sm text-white font-bold bg-blue-brand flex items-center py-0 px-2.5"
+        >
+          <option>Select one</option>
+        </select>
+
+        <p class="font-bold mb-15px">Singapore: 9999 properties found</p>
+      </div>
 
       <IndexTabbar />
 

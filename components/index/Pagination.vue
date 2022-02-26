@@ -1,23 +1,28 @@
 <template>
-  <section class="w-full box-between flex-col md:flex-row pagination">
-    <div class="w-full box-between mb-18px">
-      <button class="text-blue-brand" @click="scrollTop">Back to top</button>
-      <p class="md:hidden">Showing Results 1 – 20 of 9999</p>
+  <section class="w-full box-between flex-col md:flex-row">
+    <div class="w-full md:w-auto box-between mb-18px md:mb-0">
+      <button class="text-sm text-blue-brand" @click="scrollTop">
+        Back to top
+      </button>
+
+      <span class="text-sm md:hidden">Showing Results 1 – 20 of 9999</span>
     </div>
 
     <!-- numbers -->
-    <div class="box-between gap-x-19px text-form">
-      <p class="hidden md:block">Showing Results 1 – 20 of 9999</p>
+    <div class="w-full md:w-auto box-between md:gap-x-19px text-form">
+      <span class="text-sm hidden md:inline">
+        Showing Results 1 – 20 of 9999
+      </span>
 
       <NuxtLink to="#" disabled>
-        <img src="/img/index/arrow.png" alt="disabled-left-arrow" />
+        <img src="/img/index/arrow.png" alt="Disabled Left Arrow" />
       </NuxtLink>
 
       <NuxtLink
         v-for="number in 6"
         :key="'page-' + number"
         to="#"
-        class="box-center w-6 h-6"
+        class="text-sm box-center w-6 h-6"
         :class="{
           'bg-blue-brand rounded-5px text-white': number === 1,
         }"
@@ -25,12 +30,12 @@
         {{ number }}
       </NuxtLink>
 
-      <span class="box-center w-6 h-6"> ... </span>
+      <span class="text-sm box-center w-6 h-6"> ... </span>
 
-      <NuxtLink to="#" class="box-center w-6 h-6"> 13 </NuxtLink>
+      <NuxtLink to="#" class="text-sm box-center w-6 h-6"> 13 </NuxtLink>
 
       <NuxtLink to="#">
-        <img src="/img/index/active-arrow.png" alt="right-arrow" />
+        <img src="/img/index/active-arrow.png" alt="Right Arrow" />
       </NuxtLink>
     </div>
   </section>
@@ -46,9 +51,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.pagination > * {
-  @apply text-sm;
-}
-</style>
