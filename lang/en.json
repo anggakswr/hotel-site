@@ -13,6 +13,80 @@
   "sidebar": {
     "showOnMap": "Show on map",
     "pricePerNight": "Price per night",
-    "clear": "CLEAR"
+    "clear": "CLEAR",
+    "show": "Show",
+    "more": "more",
+    "showLess": "Show less",
+    "noRating": "No rating",
+    "hotelName": "Hotel name",
+    "hotelPlaceholder": "e.g. Hilton, Ibis ...",
+    "title": {
+      "Price per night": "Price per night",
+      "Reviews": "Reviews",
+      "Star rating": "Star rating",
+      "Hotel name": "Hotel name",
+      "Reservation policy": "Reservation policy",
+      "Meal plan": "Meal plan",
+      "Property type": "Property type",
+      "Facilities": "Facilities"
+    },
+    "label": {
+      "Excellent": "Excellent",
+      "Very Good": "Very Good",
+      "Good": "Good",
+      "Fair": "Fair",
+      "Poor": "Poor",
+      "No review": "No review",
+      "Free cancellation": "Free cancellation",
+      "Book now, pay later": "Book now, pay later",
+      "Pay at hotel": "Pay at hotel",
+      "Room only": "Room only",
+      "Breakfast": "Breakfast",
+      "Lunch": "Lunch",
+      "Dinner": "Dinner",
+      "Half board": "Half board",
+      "Full board": "Full board",
+      "All inclusive": "All inclusive",
+      "Hostel / Backpacker accomodation": "Hostel / Backpacker accomodation",
+      "Apartment": "Apartment",
+      "Aparthotel": "Aparthotel",
+      "Resort": "Hotel",
+      "Inn": "Inn",
+      "Motel": "Motel",
+      "Bed & breakfast": "Bed & breakfast",
+      "Guesthouse": "Guesthouse",
+      "Condo": "Condo",
+      "All-inclusive property": "All-inclusive property",
+      "Hostal": "Hostal",
+      "Hotel": "Hotel",
+      "Swimming Pool": "Swimming Pool",
+      "Internet Access": "Internet Access",
+      "Non Smoking Floor": "Non Smoking Floor"
+    }
+  },
+  "tabbar": {
+    "price": "Price",
+    "first": "first",
+    "highest": "highest",
+    "lowest": "lowest",
+    "title": {
+      "Popularity": "Popularity",
+      "Price (lowest first)": "Price (lowest first)",
+      "Reviews": "Reviews",
+      "Discount": "Discount"
+    }
+  },
+  "pagination": {
+    "backToTop": "Back to top",
+    "showingResults": "Showing Results",
+    "of": "of"
+  },
+  "indexPage": {
+    "propertiesFound": "properties found",
+    "selectOne": "Select one"
+  },
+  "mobileNav": {
+    "sortFilter": "Sort & Filter",
+    "mapView": "Map View"
   }
 }

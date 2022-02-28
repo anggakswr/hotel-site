@@ -10,6 +10,8 @@ config.mocks.$router = {
   push() {},
 }
 
+config.mocks.$t = (msg) => msg
+
 describe('sidebar', () => {
   test('clear sidebar filter', async () => {
     const wrapper = mount(Filter, {
@@ -59,7 +61,7 @@ describe('sidebar', () => {
     const showMoreBtn = wrapper.find('#showMoreBtn')
 
     // check show more btn text
-    expect(showMoreBtn.text()).toBe('Show 3 more')
+    expect(showMoreBtn.text()).toContain('3')
 
     // click the show more btn
     await showMoreBtn.trigger('click')

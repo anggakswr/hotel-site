@@ -2,16 +2,21 @@
   <section class="w-full box-between flex-col md:flex-row">
     <div class="w-full md:w-auto box-between mb-18px md:mb-0">
       <button class="text-sm text-blue-brand" @click="scrollTop">
-        Back to top
+        <!-- Back to top -->
+        {{ $t('pagination.backToTop') }}
       </button>
 
-      <span class="text-sm md:hidden">Showing Results 1 – 20 of 9999</span>
+      <span class="text-sm md:hidden">
+        {{ $t('pagination.showingResults') }} 1 – 20
+        {{ $t('pagination.of') }} 9999
+      </span>
     </div>
 
     <!-- numbers -->
     <div class="w-full md:w-auto box-between md:gap-x-19px text-form">
       <span class="text-sm hidden md:inline">
-        Showing Results 1 – 20 of 9999
+        {{ $t('pagination.showingResults') }} 1 – 20
+        {{ $t('pagination.of') }} 9999
       </span>
 
       <NuxtLink to="#" disabled>

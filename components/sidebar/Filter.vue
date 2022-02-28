@@ -2,16 +2,17 @@
   <section class="bg-white rounded-5px p-5">
     <div class="box-between mb-17px">
       <h1 class="text-sm font-bold">
-        {{ title }}
+        {{ $t(`sidebar.title.${title}`) }}
       </h1>
 
+      <!-- clear btn -->
       <button
         v-if="showClearBtn"
         id="clearBtn"
         class="text-xs font-bold text-blue-brand"
         @click="checkedItems = []"
       >
-        CLEAR
+        {{ $t('sidebar.clear') }}
       </button>
     </div>
 
@@ -29,8 +30,10 @@
             type="checkbox"
             class="text-blue-brand"
           />
+
           <label :for="checkbox.id" class="text-xs text-form">
-            {{ checkbox.label }}
+            {{ $t(`sidebar.label.${checkbox.label}`) }}
+            <!-- {{ checkbox.label }} -->
           </label>
         </div>
 
@@ -44,7 +47,8 @@
         @click="showAll = true"
       >
         <span class="text-xs text-blue-brand">
-          Show {{ items.length - firstShow }} more
+          {{ $t('sidebar.show') }} {{ items.length - firstShow }}
+          {{ $t('sidebar.more') }}
         </span>
 
         <img src="/img/sidebar/triangle-down.png" alt="Triangle Down" />
@@ -56,7 +60,9 @@
         class="flex items-center gap-x-1"
         @click="showAll = false"
       >
-        <span class="text-xs text-blue-brand"> Show less </span>
+        <span class="text-xs text-blue-brand">
+          {{ $t('sidebar.showLess') }}
+        </span>
 
         <img
           src="/img/sidebar/triangle-down.png"

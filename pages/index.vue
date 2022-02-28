@@ -5,12 +5,15 @@
       <!-- mobile select -->
       <div class="mx-13px">
         <select
-          class="w-full mt-2.5 mb-15px rounded-3px h-30px text-sm text-white font-bold bg-blue-brand flex items-center py-0 px-2.5"
+          class="w-full mt-2.5 mb-15px rounded-3px h-30px text-sm text-white font-bold bg-blue-brand flex md:hidden items-center py-0 px-2.5"
         >
-          <option>Select one</option>
+          <option>{{ $t('indexPage.selectOne') }}</option>
         </select>
 
-        <p class="font-bold mb-15px">Singapore: 9999 properties found</p>
+        <p class="font-bold mb-15px">
+          Singapore: 9999
+          {{ $t('indexPage.propertiesFound') }}
+        </p>
       </div>
 
       <IndexTabbar />

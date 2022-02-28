@@ -28,11 +28,16 @@
         "
       >
         <template v-if="tab.val === 'price'">
-          Price ({{ active === 'highest' ? 'highest' : 'lowest' }} first)
+          {{ $t('tabbar.price') }}
+
+          (
+          {{ $t(`tabbar.${active === 'highest' ? 'highest' : 'lowest'}`) }}
+          {{ $t('tabbar.first') }}
+          )
         </template>
 
         <template v-else>
-          {{ tab.text }}
+          {{ $t(`tabbar.title.${tab.text}`) }}
         </template>
       </span>
 
@@ -54,7 +59,12 @@
         :style="{ bottom: '-47px' }"
         @click="sortBy(priceFilter)"
       >
-        Price ({{ priceFilter }} first)
+        {{ $t('tabbar.price') }}
+
+        (
+        {{ $t(`tabbar.${priceFilter}`) }}
+        {{ $t('tabbar.first') }}
+        )
       </button>
     </button>
   </nav>

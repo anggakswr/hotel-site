@@ -47,7 +47,11 @@
       :items="[
         { id: 'roomOnly', label: 'Room only' },
         { id: 'breakfast', label: 'Breakfast' },
-        ...additionalMealPlan,
+        { id: 'lunch', label: 'Lunch' },
+        { id: 'dinner', label: 'Dinner' },
+        { id: 'halfBoard', label: 'Half board' },
+        { id: 'fullBoard', label: 'Full board' },
+        { id: 'allInclusive', label: 'All inclusive' },
       ]"
       query-key="mealPlan"
       :first-show="2"
@@ -60,7 +64,15 @@
         { id: 'hotel', label: 'Hotel' },
         { id: 'hostel', label: 'Hostel / Backpacker accomodation' },
         { id: 'apartment', label: 'Apartment' },
-        ...additionalPropertyType,
+        { id: 'aparthotel', label: 'Aparthotel' },
+        { id: 'resort', label: 'Resort' },
+        { id: 'inn', label: 'Inn' },
+        { id: 'motel', label: 'Motel' },
+        { id: 'bedBreakfast', label: 'Bed & breakfast' },
+        { id: 'guesthouse', label: 'Guesthouse' },
+        { id: 'condo', label: 'Condo' },
+        { id: 'allInclusiveProperty', label: 'All-inclusive property' },
+        { id: 'hostal', label: 'Hostal' },
       ]"
       query-key="propertyType"
       :first-show="3"
@@ -70,9 +82,9 @@
     <SidebarFilter
       title="Facilities"
       :items="[
-        { id: 'hotel', label: 'Hotel' },
-        { id: 'hostel', label: 'Hostel / Backpacker accomodation' },
-        { id: 'apartment', label: 'Apartment' },
+        { id: 'swimmingPool', label: 'Swimming Pool' },
+        { id: 'internetAccess', label: 'Internet Access' },
+        { id: 'nonSmokingFloor', label: 'Non Smoking Floor' },
         ...additionalFacilities,
       ]"
       query-key="facilities"
@@ -92,24 +104,6 @@ export default {
   name: 'DefaultSidebar',
   data() {
     return {
-      additionalMealPlan: [
-        { id: 'payAtHotel1', label: 'Pay at hotel' },
-        { id: 'payAtHotel2', label: 'Pay at hotel' },
-        { id: 'payAtHotel3', label: 'Pay at hotel' },
-        { id: 'payAtHotel4', label: 'Pay at hotel' },
-        { id: 'payAtHotel5', label: 'Pay at hotel' },
-      ],
-      additionalPropertyType: [
-        { id: 'payAtHotel6', label: 'Pay at hotel' },
-        { id: 'payAtHotel7', label: 'Pay at hotel' },
-        { id: 'payAtHotel8', label: 'Pay at hotel' },
-        { id: 'payAtHotel9', label: 'Pay at hotel' },
-        { id: 'payAtHotel0', label: 'Pay at hotel' },
-        { id: 'payAtHotel10', label: 'Pay at hotel' },
-        { id: 'payAtHotel11', label: 'Pay at hotel' },
-        { id: 'payAtHotel12', label: 'Pay at hotel' },
-        { id: 'payAtHotel13', label: 'Pay at hotel' },
-      ],
       additionalFacilities,
     }
   },

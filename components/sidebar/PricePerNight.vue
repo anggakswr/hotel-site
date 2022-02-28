@@ -1,14 +1,16 @@
 <template>
   <section class="bg-white rounded-5px p-5">
     <div class="box-between">
-      <h1 class="text-sm font-bold">Price per night</h1>
+      <h1 class="text-sm font-bold">
+        {{ $t('sidebar.pricePerNight') }}
+      </h1>
 
       <button
         id="price-clear"
         class="text-xs font-bold text-blue-brand"
         @click="range = [0, 0]"
       >
-        CLEAR
+        {{ $t('sidebar.clear') }}
       </button>
     </div>
 

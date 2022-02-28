@@ -8,7 +8,8 @@
         class="text-xs font-bold text-blue-brand"
         @click="checkedStarRatings = []"
       >
-        CLEAR
+        <!-- CLEAR -->
+        {{ $t('sidebar.clear') }}
       </button>
     </div>
 
@@ -28,7 +29,7 @@
           />
           <label :for="checkbox.id" class="text-xs text-form">
             <template v-if="checkbox.label">
-              {{ checkbox.label }}
+              {{ $t('sidebar.noRating') }}
             </template>
 
             <span v-else class="flex">
