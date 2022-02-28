@@ -87,6 +87,10 @@
   },
   "mobileNav": {
     "sortFilter": "Sort & Filter",
-    "mapView": "Map View"
+    "mapView": "Map View",
+    "sortFilterPopup": {
+      "sortBy": "Sort by",
+      "filterBy": "Filter by"
+    }
   }
 }

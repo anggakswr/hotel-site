@@ -2,7 +2,7 @@
   <section class="h-50px grid grid-cols-2">
     <button
       class="box-center text-sm text-blue-brand border-r border-gray-brand"
-      @click="sortFilterPopupOn = true"
+      @click="$store.commit('setSortFilterPopupOn', true)"
     >
       <img src="/img/header/filter.png" alt="Filter" class="mr-3" />
       <span>
@@ -20,11 +20,5 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      sortFilterPopupOn: false,
-    }
-  },
-}
+export default {}
 </script>

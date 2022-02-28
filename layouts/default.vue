@@ -1,7 +1,7 @@
 <template>
   <div class="bg min-h-screen pt-40 md:pt-145px px-2.5 md:px-115px">
     <!-- mobile popups -->
-    <!-- <SortFilterPopup /> -->
+    <SortFilterPopup />
 
     <Header />
 

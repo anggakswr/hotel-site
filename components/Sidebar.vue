@@ -1,10 +1,14 @@
 <template>
   <aside
-    class="sidebar hidden md:flex flex-col gap-y-7px"
+    class="md:flex flex-col"
     :style="{ marginBottom: '86px' }"
+    :class="{
+      flex: popupOn,
+      'hidden sidebar gap-y-7px': !popupOn,
+    }"
   >
     <!-- map -->
-    <SidebarMap />
+    <SidebarMap v-if="!popupOn" />
 
     <!-- price per night filter (range slider) -->
     <SidebarPricePerNight />
@@ -102,6 +106,11 @@ for (let i = 0; i < 26; i++) {
 
 export default {
   name: 'DefaultSidebar',
+  props: {
+    popupOn: {
+      type: Boolean,
+    },
+  },
   data() {
     return {
       additionalFacilities,
