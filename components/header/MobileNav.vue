@@ -1,16 +1,26 @@
 <template>
   <nav class="fixed top-0 inset-x-0 bg-white md:hidden">
     <!-- logo & hamburger menu -->
-    <HeaderMobileNavLogoAndHamburger />
+    <LogoAndHamburger />
 
     <!-- search bar -->
-    <HeaderMobileNavSearchBar />
+    <SearchBar />
 
     <!-- sort & filter, map view -->
-    <HeaderMobileNavSortFilterMapView />
+    <SortFilterMapView />
   </nav>
 </template>
 
 <script>
-export default {}
+import LogoAndHamburger from './mobile-nav/LogoAndHamburger.vue'
+import SearchBar from './mobile-nav/SearchBar.vue'
+import SortFilterMapView from './mobile-nav/SortFilterMapView.vue'
+
+export default {
+  components: {
+    LogoAndHamburger,
+    SearchBar,
+    SortFilterMapView,
+  },
+}
 </script>

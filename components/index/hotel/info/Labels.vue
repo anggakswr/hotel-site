@@ -5,7 +5,10 @@
     </span>
 
     <span
-      v-tooltip="'You have  new messages.'"
+      v-tooltip.bottom="{
+        html: true,
+        content: tooltipContent,
+      }"
       class="border border-lightblue text-lightblue text-xs px-5px py-0.5"
     >
       +1
@@ -16,5 +19,30 @@
 <script>
 export default {
   name: 'HotelInfoLabels',
+  computed: {
+    tooltipContent() {
+      const words = [
+        'Breakfast',
+        'Free cancellation',
+        'Pay later',
+        'Pay at hotel',
+      ]
+
+      const opentag = '<div class="grid grid-cols-2">'
+      const closetag = '</div>'
+      let imgs = ''
+
+      words.forEach((word) => {
+        imgs += `
+          <div class="flex items-center gap-x-2">
+            <img src="/img/index/check.png" alt="Green Check" />
+            ${word}
+          </div>
+        `
+      })
+
+      return opentag + imgs + closetag
+    },
+  },
 }
 </script>

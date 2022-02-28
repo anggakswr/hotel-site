@@ -2,6 +2,7 @@
   <section class="h-50px grid grid-cols-2">
     <button
       class="box-center text-sm text-blue-brand border-r border-gray-brand"
+      @click="sortFilterPopupOn = true"
     >
       <img src="/img/header/filter.png" alt="Filter" class="mr-3" />
       <span>
@@ -19,5 +20,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      sortFilterPopupOn: false,
+    }
+  },
+}
 </script>
