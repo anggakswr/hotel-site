@@ -1,6 +1,7 @@
 export const state = () => ({
   currency: 'sg',
   sortFilterPopupOn: false,
+  mapViewPopupOn: false,
 })
 
 export const mutations = {
@@ -9,5 +10,8 @@ export const mutations = {
   },
   setSortFilterPopupOn(state, payload) {
     state.sortFilterPopupOn = payload
+  },
+  setMapViewPopupOn(state, payload) {
+    state.mapViewPopupOn = payload
   },
 }

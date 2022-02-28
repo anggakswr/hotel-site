@@ -10,7 +10,10 @@
       </span>
     </button>
 
-    <button class="box-center text-sm text-blue-brand">
+    <button
+      class="box-center text-sm text-blue-brand"
+      @click="$store.commit('setMapViewPopupOn', true)"
+    >
       <img src="/img/header/location.png" alt="Location" class="mr-3" />
       <span>
         {{ $t('mobileNav.mapView') }}

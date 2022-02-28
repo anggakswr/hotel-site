@@ -2,7 +2,7 @@
   <div class="relative w-250px">
     <!-- search icon -->
     <div class="absolute inset-y-0 left-0 box-center pl-2.5">
-      <img src="/img/form/search.png" alt="Search Place" />
+      <img src="/img/form/date.png" alt="Search Place" />
     </div>
 
     <button
