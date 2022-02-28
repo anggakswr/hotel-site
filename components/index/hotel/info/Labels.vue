@@ -1,14 +1,11 @@
 <template>
-  <div class="flex gap-x-5px mb-13px">
+  <div class="hidden md:flex gap-x-5px mb-13px">
     <span class="border border-lightblue text-lightblue text-xs px-5px py-0.5">
       Breakfast
     </span>
 
     <span
-      v-tooltip.bottom="{
-        html: true,
-        content: tooltipContent,
-      }"
+      v-tooltip.bottom="{ html: true, content: tooltipContent }"
       class="border border-lightblue text-lightblue text-xs px-5px py-0.5"
     >
       +1

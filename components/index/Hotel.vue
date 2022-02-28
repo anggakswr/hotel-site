@@ -1,16 +1,14 @@
 <template>
-  <section class="w-full bg-white rounded-5px p-2.5 hover:shadow-lg">
-    <div class="flex">
-      <!-- imgs -->
-      <IndexHotelImgs />
+  <section class="w-full bg-white rounded-5px md:p-2.5 hover:shadow-lg flex">
+    <!-- imgs -->
+    <IndexHotelImgs />
 
-      <div class="w-full grid grid-cols-3">
-        <!-- info -->
-        <IndexHotelInfo />
+    <div class="w-full flex flex-col md:flex-row">
+      <!-- info -->
+      <IndexHotelInfo />
 
-        <!-- rate img & price -->
-        <IndexHotelRatePrice />
-      </div>
+      <!-- rate img & price -->
+      <IndexHotelRatePrice />
     </div>
   </section>
 </template>

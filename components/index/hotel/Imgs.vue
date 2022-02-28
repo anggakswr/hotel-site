@@ -1,11 +1,11 @@
 <template>
   <div>
     <div
-      class="big-img bg-cover bg-center mb-0.5"
+      class="w-100px md:w-200px h-full md:h-40 bg-cover bg-center mb-0.5"
       :style="{ backgroundImage: `url(https://picsum.photos/200/160)` }"
     />
 
-    <div class="flex justify-between">
+    <div class="hidden md:flex justify-between">
       <div
         v-for="number in 4"
         :key="'small-img-' + number"

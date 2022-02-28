@@ -21,9 +21,11 @@ module.exports = {
         '38px': '38px',
         '50px': '50px',
         '60px': '60px',
+        '100px': '100px',
         '115px': '115px',
         '145px': '145px',
         '150px': '150px',
+        '200px': '200px',
         '250px': '250px',
       },
       colors: {
