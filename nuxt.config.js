@@ -41,16 +41,33 @@ export default {
     '@nuxtjs/axios',
     // multilang
     '@nuxtjs/i18n',
+    // for cors
+    '@nuxtjs/proxy',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    proxy: true,
+    // baseURL: 'https://hiring.zumata.xyz', // Used as a fallback if no runtime config is provided
+  },
+
+  // for cors
+  proxy: {
+    '/api/': {
+      target: process.env.BASE_URL || 'https://hiring.zumata.xyz',
+      pathRewrite: { '^/api/': '' },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  publicRuntimeConfig: {
+    // baseURL: process.env.BASE_URL || 'https://hiring.zumata.xyz',
+    // axios: {
+    //   baseURL: process.env.API_BASE_URL || 'https://hiring.zumata.xyz',
+    // },
+  },
 
   // multilang
   i18n: {

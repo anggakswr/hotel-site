@@ -35,20 +35,17 @@
 
 <script>
 import Slider from '@vueform/slider/dist/slider.vue2'
+import currenyFormat from '@/mixins/currencyFormat'
 
 export default {
   components: {
     Slider,
   },
+  mixins: [currenyFormat],
   data() {
     return {
       range: [0, 0],
     }
-  },
-  computed: {
-    currency() {
-      return this.$store.state.currency
-    },
   },
 }
 </script>

@@ -14,13 +14,23 @@
       </span>
       <p class="text-10px md:text-xs text-night">Nightly avg.</p>
       <p>
-        <span class="text-xs text-night line-through">SGD 120</span>
-        <span class="text-10px md:text-2xl font-bold">SGD 100</span>
+        <span class="text-xs text-night line-through">
+          <!-- SGD 120 -->
+          {{ $n(120, 'currency', currency) }}
+        </span>
+        <span class="text-10px md:text-2xl font-bold">
+          <!-- SGD 100 -->
+          {{ $n(100, 'currency', currency) }}
+        </span>
       </p>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import currenyFormat from '@/mixins/currencyFormat'
+
+export default {
+  mixins: [currenyFormat],
+}
 </script>

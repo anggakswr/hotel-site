@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2.5 md:p-15px">
+  <div class="w-full p-2.5 md:p-15px">
     <!-- title & stars -->
     <div class="flex flex-col md:flex-row md:items-center gap-x-5px mb-5px">
       <h1 class="font-bold text-form text-sm md:text-base">
