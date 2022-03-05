@@ -23,10 +23,8 @@ describe('header', () => {
         // $axios: jest.fn(() => Promise.resolve(mockCities)),
         $axios: axios,
       },
-      stubs: {
-        NuxtLink: true,
-      },
     })
+
     const input = wrapper.find('input')
 
     // focus on search input
@@ -40,8 +38,11 @@ describe('header', () => {
     // await flushPromises()
     await Vue.nextTick()
 
-    const nuxtLinks = wrapper.findAll('nuxtlink-stub')
+    const city = wrapper.findAll('button')
 
-    expect(nuxtLinks.length).toBe(2)
+    expect(city.length).toBe(2)
+
+    expect(city.at(0).text()).toBe('city1')
+    expect(city.at(1).text()).toBe('city2')
   })
 })

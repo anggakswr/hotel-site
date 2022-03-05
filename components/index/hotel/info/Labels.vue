@@ -1,7 +1,7 @@
 <template>
   <div class="hidden md:flex gap-x-5px mb-13px">
     <span class="border border-lightblue text-lightblue text-xs px-5px py-0.5">
-      Breakfast
+      {{ item[0].food }}
     </span>
 
     <span
@@ -16,6 +16,12 @@
 <script>
 export default {
   name: 'HotelInfoLabels',
+  props: {
+    item: {
+      type: Array,
+      required: true,
+    },
+  },
   computed: {
     tooltipContent() {
       const words = [

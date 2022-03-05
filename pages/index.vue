@@ -18,8 +18,14 @@
 
       <IndexTabbar />
 
+      <IndexNotFound v-if="!cityCode" />
+
       <!-- this hotel component can be looped -->
-      <IndexHotel />
+      <IndexHotel
+        v-for="(hotel, index) in hotels"
+        :key="hotel.name + index"
+        :item="hotel"
+      />
     </section>
 
     <!-- pagination -->
@@ -33,7 +39,13 @@ export default {
   data() {
     return {
       loading: false,
+      hotels: [],
     }
+  },
+  computed: {
+    cityCode() {
+      return this.$route.query.city
+    },
   },
   watch: {
     '$route.query.city'(newVal) {
@@ -42,9 +54,30 @@ export default {
       }
     },
   },
+  mounted() {
+    if (this.cityCode) {
+      this.getHotels()
+    }
+  },
   methods: {
-    getHotels() {
+    async getHotels() {
       this.loading = true
+
+      try {
+        const res = await this.$axios.get('/api/job01/search/' + this.cityCode)
+        const { outlets } = res.data
+        this.hotels = outlets.availability.results
+      } catch (err) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+
+        if (err.response.data) {
+          // this.errorFromBackend =
+          //   err.response.data.title || err.response.data.message
+        } else {
+          // this.errorFromBackend = err.message
+        }
+      }
+
       this.loading = false
     },
   },
