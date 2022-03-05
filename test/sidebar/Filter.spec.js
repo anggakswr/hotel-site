@@ -1,6 +1,6 @@
 import { mount, config } from '@vue/test-utils'
 import Vue from 'vue'
-import Filter from '~/components/sidebar/Filter.vue'
+import Filter from '@/components/sidebar/Filter.vue'
 
 config.mocks.$route = {
   query: null,

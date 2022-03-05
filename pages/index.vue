@@ -30,5 +30,23 @@
 <script>
 export default {
   name: 'IndexPage',
+  data() {
+    return {
+      loading: false,
+    }
+  },
+  watch: {
+    '$route.query.city'(newVal) {
+      if (newVal) {
+        this.getHotels()
+      }
+    },
+  },
+  methods: {
+    getHotels() {
+      this.loading = true
+      this.loading = false
+    },
+  },
 }
 </script>
