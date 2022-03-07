@@ -29,7 +29,7 @@
       <b class="text-10px">4.5 Excellent</b> (12,345 reviews)
     </p>
 
-    <p class="hidden md:block text-xs text-night mb-11px truncate">
+    <p class="hidden md:block text-xs text-night mb-11px w-80 truncate">
       <!-- “Excellent boutique hotel. Great rooms in excellent location. Awesome
       vibe. Beautiful beac... -->
       {{ property.reviews ? property.reviews.summary.text : '' }}
@@ -37,7 +37,10 @@
 
     <Labels v-if="packages.length" :item="packages" />
 
-    <div class="hidden md:flex items-center gap-x-11px">
+    <div
+      v-if="property.reviews && property.reviews.covidSafety"
+      class="hidden md:flex items-center gap-x-11px"
+    >
       <div>
         <img src="/img/index/protection.png" alt="Protection" />
       </div>

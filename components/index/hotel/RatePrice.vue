@@ -6,21 +6,28 @@
     </div>
 
     <!-- text below -->
-    <div class="text-right">
+    <div v-if="packages.length" class="text-right">
       <span
+        v-if="isDiscount"
         class="text-10px md:text-xs text-white font-bold bg-lightblue px-5px mb-5px"
       >
-        SAVE 16% TODAY!
+        SAVE {{ discount }}% TODAY!
       </span>
+
       <p class="text-10px md:text-xs text-night">Nightly avg.</p>
-      <p>
-        <span class="text-xs text-night line-through">
+
+      <p class="flex items-end">
+        <span v-if="isDiscount" class="text-xs text-night line-through mb-1">
           <!-- SGD 120 -->
-          {{ $n(120, 'currency', currency) }}
+          {{ $n(displayRate, 'currency', currency) }}
         </span>
-        <span class="text-10px md:text-2xl font-bold">
+
+        <span
+          class="text-10px md:text-2xl font-bold"
+          :style="{ marginLeft: '3px' }"
+        >
           <!-- SGD 100 -->
-          {{ $n(100, 'currency', currency) }}
+          {{ $n(adjustedDisplayRate, 'currency', currency) }}
         </span>
       </p>
     </div>
@@ -32,5 +39,28 @@ import currenyFormat from '@/mixins/currencyFormat'
 
 export default {
   mixins: [currenyFormat],
+  props: {
+    packages: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  computed: {
+    displayRate() {
+      return this.packages[0].displayRate.value
+    },
+    adjustedDisplayRate() {
+      return this.packages[0].adjustedDisplayRate.value
+    },
+    isDiscount() {
+      return this.displayRate > this.adjustedDisplayRate
+    },
+    discount() {
+      const minus = this.displayRate - this.adjustedDisplayRate
+      const percentage = (minus / this.displayRate) * 100
+
+      return percentage | 0
+    },
+  },
 }
 </script>

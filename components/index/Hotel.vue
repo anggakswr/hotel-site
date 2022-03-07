@@ -1,9 +1,7 @@
 <template>
-  <section
-    class="w-full bg-white rounded-5px md:p-2.5 hover:shadow-lg flex mb-2.5"
-  >
+  <section class="bg-white rounded-5px md:p-2.5 hover:shadow-lg flex mb-2.5">
     <!-- imgs -->
-    <IndexHotelImgs />
+    <IndexHotelImgs :property="item.property" />
 
     <div class="w-full flex flex-col md:flex-row">
       <!-- info -->
@@ -13,7 +11,7 @@
       />
 
       <!-- rate img & price -->
-      <IndexHotelRatePrice />
+      <IndexHotelRatePrice :packages="item.packages || []" />
     </div>
   </section>
 </template>

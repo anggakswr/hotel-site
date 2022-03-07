@@ -57,6 +57,8 @@ export default {
   mounted() {
     if (this.cityCode) {
       this.getHotels()
+    } else {
+      this.hotels = []
     }
   },
   methods: {
