@@ -288,11 +288,28 @@ describe('index page', () => {
         IndexHotel: true,
         IndexPagination: true,
         IndexNotFound: true,
+        IndexHotelSkeleton: true,
       },
     })
 
     expect(axios.get).toHaveBeenCalledTimes(1)
     expect(axios.get).toHaveBeenCalledWith('/api/job01/search/city1')
+
+    // wait for the DOM changes
+    await Vue.nextTick()
+
+    // loading placeholder appear
+    const skeletons = wrapper.findAll('indexhotelskeleton-stub')
+
+    expect(skeletons.length).toBe(3)
+
+    // wait for the DOM changes
+    await Vue.nextTick()
+
+    // loading placeholder gone
+    const skeletons2 = wrapper.findAll('indexhotelskeleton-stub')
+
+    expect(skeletons2.length).toBe(0)
 
     // wait for the DOM changes
     await Vue.nextTick()

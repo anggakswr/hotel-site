@@ -11,21 +11,30 @@
         </select>
 
         <p class="font-bold mb-15px">
-          Singapore: 9999
+          Singapore: {{ pagination.totalItems || '0' }}
           {{ $t('indexPage.propertiesFound') }}
         </p>
       </div>
 
       <IndexTabbar />
 
-      <IndexNotFound v-if="!cityCode" />
+      <!-- loading placeholder -->
+      <template v-if="loading">
+        <IndexHotelSkeleton />
+        <IndexHotelSkeleton />
+        <IndexHotelSkeleton />
+      </template>
 
-      <!-- this hotel component can be looped -->
-      <IndexHotel
-        v-for="(hotel, index) in hotels"
-        :key="hotel.name + index"
-        :item="hotel"
-      />
+      <template v-else>
+        <IndexNotFound v-if="!cityCode" />
+
+        <!-- this hotel component can be looped -->
+        <IndexHotel
+          v-for="(hotel, index) in hotels"
+          :key="hotel.property.name + index"
+          :item="hotel"
+        />
+      </template>
     </section>
 
     <!-- pagination -->
@@ -40,6 +49,7 @@ export default {
     return {
       loading: false,
       hotels: [],
+      pagination: {},
     }
   },
   computed: {
@@ -68,7 +78,9 @@ export default {
       try {
         const res = await this.$axios.get('/api/job01/search/' + this.cityCode)
         const { outlets } = res.data
+
         this.hotels = outlets.availability.results
+        this.pagination = outlets.availability.pagination
       } catch (err) {
         window.scrollTo({ top: 0, behavior: 'smooth' })
 
