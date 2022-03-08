@@ -97,7 +97,7 @@ export default {
       if (val === 'price') {
         this.priceBtnOn = !this.priceBtnOn
       } else {
-        this.$router.push({ ...this.$route.query, query: { sortby: val } })
+        this.$router.push({ query: { ...this.$route.query, sortby: val } })
       }
     },
   },
