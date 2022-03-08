@@ -26,7 +26,8 @@
       </template>
 
       <template v-else>
-        <IndexNotFound v-if="!cityCode" />
+        <IndexError v-if="errorFromBackend" :errmsg="errorFromBackend" />
+        <IndexNotFound v-else-if="!cityCode || !hotels.length" />
 
         <!-- this hotel component can be looped -->
         <IndexHotel
@@ -38,7 +39,7 @@
     </section>
 
     <!-- pagination -->
-    <IndexPagination />
+    <IndexPagination :pagination="pagination" />
   </main>
 </template>
 
@@ -50,6 +51,7 @@ export default {
       loading: false,
       hotels: [],
       pagination: {},
+      errorFromBackend: '',
     }
   },
   computed: {
@@ -59,12 +61,18 @@ export default {
   },
   watch: {
     '$route.query.city'(newVal) {
+      this.errorFromBackend = ''
+
       if (newVal) {
         this.getHotels()
+      } else {
+        this.hotels = []
       }
     },
   },
   mounted() {
+    this.errorFromBackend = ''
+
     if (this.cityCode) {
       this.getHotels()
     } else {
@@ -80,15 +88,15 @@ export default {
         const { outlets } = res.data
 
         this.hotels = outlets.availability.results
-        this.pagination = outlets.availability.pagination
+        this.pagination = outlets.availability.pagination || {}
       } catch (err) {
         window.scrollTo({ top: 0, behavior: 'smooth' })
 
         if (err.response.data) {
-          // this.errorFromBackend =
-          //   err.response.data.title || err.response.data.message
+          this.errorFromBackend =
+            err.response.data.title || err.response.data.message
         } else {
-          // this.errorFromBackend = err.message
+          this.errorFromBackend = err.message
         }
       }
 

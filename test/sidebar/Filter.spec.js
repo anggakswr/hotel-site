@@ -31,7 +31,6 @@ describe('sidebar', () => {
 
     // the checkbox should be checked
     expect(checkboxes.at(0).element.checked).toBeTruthy()
-
     const clearBtn = wrapper.find('#clearBtn')
 
     // click the clear btn
@@ -58,35 +57,27 @@ describe('sidebar', () => {
       },
     })
 
-    const showMoreBtn = wrapper.find('#showMoreBtn')
-
     // check show more btn text
+    const showMoreBtn = wrapper.find('#showMoreBtn')
     expect(showMoreBtn.text()).toContain('3')
 
     // click the show more btn
     await showMoreBtn.trigger('click')
 
-    // try to find the show more btn again
-    const showMoreBtn2 = wrapper.find('#showMoreBtn')
-
     // the show more btn should gone
+    const showMoreBtn2 = wrapper.find('#showMoreBtn')
     expect(showMoreBtn2.exists()).toBe(false)
 
-    const showLessBtn = wrapper.find('#showLessBtn')
-
     // click the show less btn
+    const showLessBtn = wrapper.find('#showLessBtn')
     await showLessBtn.trigger('click')
 
-    // try to find the show more btn again
-    const showMoreBtn3 = wrapper.find('#showMoreBtn')
-
     // the show more btn should appear
+    const showMoreBtn3 = wrapper.find('#showMoreBtn')
     expect(showMoreBtn3.exists()).toBe(true)
 
-    // try to find the show less btn again
-    const showLessBtn2 = wrapper.find('#showLessBtn')
-
     // the show more btn should gone
+    const showLessBtn2 = wrapper.find('#showLessBtn')
     expect(showLessBtn2.exists()).toBe(false)
   })
 })

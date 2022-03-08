@@ -251,8 +251,18 @@ jest.mock('axios', () => ({
   get: jest.fn(() => Promise.resolve(mockHotels)),
 }))
 
+// stubs child components
+const stubs = {
+  IndexTabbar: true,
+  IndexHotel: true,
+  IndexHotelSkeleton: true,
+  IndexPagination: true,
+  IndexNotFound: true,
+  IndexError: true,
+}
+
 describe('index page', () => {
-  test('do not get hotels when city query does not exists', () => {
+  test('do not GET hotels when city query does not exists', () => {
     const wrapper = shallowMount(index, {
       mocks: {
         $axios: axios,
@@ -260,20 +270,22 @@ describe('index page', () => {
           query: {},
         },
       },
-      stubs: {
-        IndexTabbar: true,
-        IndexHotel: true,
-        IndexPagination: true,
-        IndexNotFound: true,
-      },
+      stubs,
     })
 
-    const notFoundDesc = wrapper.find('indexnotfound-stub')
+    // not calling the api
+    expect(axios.get).toHaveBeenCalledTimes(0)
 
+    // not found msg should appear
+    const notFoundDesc = wrapper.find('indexnotfound-stub')
     expect(notFoundDesc.exists()).toBe(true)
+
+    // hotels should not exist
+    const hotels = wrapper.findAll('indexhotel-stub')
+    expect(hotels.length).toBe(0)
   })
 
-  test('get hotels when city query is exists', async () => {
+  test('GET hotels when city query is exists', async () => {
     const wrapper = shallowMount(index, {
       mocks: {
         $axios: axios,
@@ -283,13 +295,7 @@ describe('index page', () => {
           },
         },
       },
-      stubs: {
-        IndexTabbar: true,
-        IndexHotel: true,
-        IndexPagination: true,
-        IndexNotFound: true,
-        IndexHotelSkeleton: true,
-      },
+      stubs,
     })
 
     expect(axios.get).toHaveBeenCalledTimes(1)
@@ -300,7 +306,6 @@ describe('index page', () => {
 
     // loading placeholder appear
     const skeletons = wrapper.findAll('indexhotelskeleton-stub')
-
     expect(skeletons.length).toBe(3)
 
     // wait for the DOM changes
@@ -308,14 +313,21 @@ describe('index page', () => {
 
     // loading placeholder gone
     const skeletons2 = wrapper.findAll('indexhotelskeleton-stub')
-
     expect(skeletons2.length).toBe(0)
 
     // wait for the DOM changes
     await Vue.nextTick()
 
+    // search result should exist
     const hotels = wrapper.findAll('indexhotel-stub')
-
     expect(hotels.length).toBe(1)
+
+    // not found msg should not exist
+    const notFoundDesc = wrapper.find('indexnotfound-stub')
+    expect(notFoundDesc.exists()).toBe(false)
+
+    // err msg should not exist
+    const errDesc = wrapper.find('indexerror-stub')
+    expect(errDesc.exists()).toBe(false)
   })
 })

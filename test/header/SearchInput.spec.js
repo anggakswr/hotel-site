@@ -39,9 +39,7 @@ describe('header', () => {
     await Vue.nextTick()
 
     const city = wrapper.findAll('button')
-
     expect(city.length).toBe(2)
-
     expect(city.at(0).text()).toBe('city1')
     expect(city.at(1).text()).toBe('city2')
   })

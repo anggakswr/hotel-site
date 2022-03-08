@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed top-0 inset-x-0 bg-white md:hidden">
+  <nav class="fixed z-10 top-0 inset-x-0 bg-white md:hidden">
     <!-- logo & hamburger menu -->
     <LogoAndHamburger />
 

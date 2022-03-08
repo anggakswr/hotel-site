@@ -7,16 +7,30 @@
       </button>
 
       <span class="text-sm md:hidden">
-        {{ $t('pagination.showingResults') }} 1 – 20
-        {{ $t('pagination.of') }} 9999
+        {{ $t('pagination.showingResults') }}
+
+        <!-- first page -->
+        {{ pagination.showing ? pagination.showing[0] : '1' }} –
+        <!-- last page -->
+        {{ pagination.showing ? pagination.showing[1] : '1' }}
+
+        {{ $t('pagination.of') }}
+        {{ pagination.totalItems || '0' }}
       </span>
     </div>
 
     <!-- numbers -->
     <div class="w-full md:w-auto box-between md:gap-x-19px text-form">
       <span class="text-sm hidden md:inline">
-        {{ $t('pagination.showingResults') }} 1 – 20
-        {{ $t('pagination.of') }} 9999
+        {{ $t('pagination.showingResults') }}
+
+        <!-- first page -->
+        {{ pagination.showing ? pagination.showing[0] : '1' }} –
+        <!-- last page -->
+        {{ pagination.showing ? pagination.showing[1] : '1' }}
+
+        {{ $t('pagination.of') }}
+        {{ pagination.totalItems || '0' }}
       </span>
 
       <NuxtLink to="#" disabled>
@@ -29,7 +43,7 @@
         to="#"
         class="text-sm box-center w-6 h-6"
         :class="{
-          'bg-blue-brand rounded-5px text-white': number === 1,
+          'bg-blue-brand rounded-5px text-white': number === currentPage,
         }"
       >
         {{ number }}
@@ -49,6 +63,17 @@
 <script>
 export default {
   name: 'IndexPagination',
+  props: {
+    pagination: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    currentPage() {
+      return this.pagination.page || 1
+    },
+  },
   methods: {
     scrollTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' })

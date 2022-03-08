@@ -17,13 +17,16 @@
       <p class="text-10px md:text-xs text-night">Nightly avg.</p>
 
       <p class="flex items-end">
-        <span v-if="isDiscount" class="text-xs text-night line-through mb-1">
+        <span
+          v-if="isDiscount"
+          class="text-10px md:text-xs text-night line-through md:mb-1"
+        >
           <!-- SGD 120 -->
           {{ $n(displayRate, 'currency', currency) }}
         </span>
 
         <span
-          class="text-10px md:text-2xl font-bold"
+          class="text-sm md:text-2xl font-bold"
           :style="{ marginLeft: '3px' }"
         >
           <!-- SGD 100 -->
