@@ -27,6 +27,7 @@
         </div>
 
         <input
+          v-model="inputVal"
           type="text"
           class="h-10 w-full rounded-3px border border-gray-brand text-sm"
           :style="{ padding: '0 33px' }"
@@ -70,6 +71,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      inputVal: '',
+    }
+  },
   head() {
     return {
       bodyAttrs: {
@@ -85,6 +91,14 @@ export default {
       set(val) {
         this.$store.commit('setMapViewPopupOn', val)
       },
+    },
+    country() {
+      return this.$store.state.country
+    },
+  },
+  watch: {
+    country(newVal) {
+      this.inputVal = newVal
     },
   },
 }

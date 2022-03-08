@@ -22,11 +22,19 @@
       <!-- 80 Collyer quay, Marina Bay, Singapore, Singapore, 049326 -->
       {{ locationFormatted }}
 
-      (<NuxtLink to="#" class="text-xs text-blue-brand"> view map </NuxtLink>)
+      (<NuxtLink to="#" class="text-xs text-blue-brand">
+        {{ $t('indexPage.viewMap') }} </NuxtLink
+      >)
     </h2>
 
+    <!-- mobile only -->
     <p class="text-10px md:hidden">
-      <b class="text-10px">4.5 Excellent</b> (12,345 reviews)
+      <b class="text-10px">
+        {{ property.starRating }}
+        {{ $t('sidebar.label.' + starRatingFormatted) }}
+      </b>
+
+      ({{ property.trustYou.reviewsCount }} {{ $t('indexPage.reviews') }})
     </p>
 
     <p class="hidden md:block text-xs text-night mb-11px w-80 truncate">
@@ -78,6 +86,21 @@ export default {
       return `${address}, ${city}, ${countryFormatted} ${countryNames.of(
         countryCode
       )}, ${postalCode}`
+    },
+    starRatingFormatted() {
+      const val = this.property.starRating
+
+      if (val > 4 && val < 5) {
+        return 'Excellent'
+      } else if (val > 3 && val < 4) {
+        return 'Very Good'
+      } else if (val > 2 && val < 3) {
+        return 'Good'
+      } else if (val > 1 && val < 2) {
+        return 'Fair'
+      } else {
+        return 'Poor'
+      }
     },
   },
 }

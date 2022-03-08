@@ -4,8 +4,10 @@
   >
     <img src="/img/form/search.png" alt="Search" class="mr-3.5" />
 
-    <span>
-      <span class="text-left text-sm font-bold"> Singapore, Singapore </span>
+    <span class="flex flex-col">
+      <span class="text-left text-sm font-bold">
+        {{ $store.state.country || 'Singapore, Singapore' }}
+      </span>
 
       <span>
         <span class="text-xs mr-5">Aug 18 - Aug 19</span>

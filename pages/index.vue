@@ -10,8 +10,19 @@
           <option>{{ $t('indexPage.selectOne') }}</option>
         </select>
 
-        <p class="font-bold mb-15px">
-          Singapore: {{ pagination.totalItems || '0' }}
+        <p v-if="loading" class="font-bold mb-15px">
+          {{ $t('indexPage.finding') }}
+        </p>
+
+        <p v-else class="font-bold mb-15px">
+          {{
+            $store.state.country
+              ? $store.state.country.split(',')[0]
+              : 'Singapore'
+          }}:
+
+          {{ pagination.totalItems || '0' }}
+
           {{ $t('indexPage.propertiesFound') }}
         </p>
       </div>
@@ -29,12 +40,14 @@
         <IndexError v-if="errorFromBackend" :errmsg="errorFromBackend" />
         <IndexNotFound v-else-if="!cityCode || !hotels.length" />
 
-        <!-- this hotel component can be looped -->
-        <IndexHotel
-          v-for="(hotel, index) in hotels"
-          :key="hotel.property.name + index"
-          :item="hotel"
-        />
+        <template v-else>
+          <!-- this hotel component can be looped -->
+          <IndexHotel
+            v-for="(hotel, index) in hotels"
+            :key="hotel.property.name + index"
+            :item="hotel"
+          />
+        </template>
       </template>
     </section>
 
@@ -62,21 +75,21 @@ export default {
   watch: {
     '$route.query.city'(newVal) {
       this.errorFromBackend = ''
+      this.hotels = []
+      this.pagination = {}
 
       if (newVal) {
         this.getHotels()
-      } else {
-        this.hotels = []
       }
     },
   },
   mounted() {
     this.errorFromBackend = ''
+    this.hotels = []
+    this.pagination = {}
 
     if (this.cityCode) {
       this.getHotels()
-    } else {
-      this.hotels = []
     }
   },
   methods: {
@@ -88,7 +101,10 @@ export default {
         const { outlets } = res.data
 
         this.hotels = outlets.availability.results
-        this.pagination = outlets.availability.pagination || {}
+
+        if (outlets.availability.pagination) {
+          this.pagination = outlets.availability.pagination
+        }
       } catch (err) {
         window.scrollTo({ top: 0, behavior: 'smooth' })
 

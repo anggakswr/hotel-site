@@ -70,7 +70,15 @@ export default {
   },
   methods: {
     renderFood(code) {
-      const foods = ['Breakfast', 'Lunch', 'Dinner', 'Half board', 'Full board']
+      const foods = [
+        'Room Only',
+        'Breakfast',
+        'Lunch',
+        'Dinner',
+        'Half board',
+        'Full board',
+        'All inclusive',
+      ]
 
       return foods[code - 1]
     },

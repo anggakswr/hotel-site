@@ -50,7 +50,7 @@
       "Hostel / Backpacker accomodation": "Hostel / Backpacker accomodation",
       "Apartment": "Apartment",
       "Aparthotel": "Aparthotel",
-      "Resort": "Hotel",
+      "Resort": "Resort",
       "Inn": "Inn",
       "Motel": "Motel",
       "Bed & breakfast": "Bed & breakfast",
@@ -83,7 +83,13 @@
   },
   "indexPage": {
     "propertiesFound": "properties found",
-    "selectOne": "Select one"
+    "selectOne": "Select one",
+    "finding": "Finding the best deals...",
+    "viewMap": "view map",
+    "reviews": "reviews",
+    "SAVE": "SAVE",
+    "TODAY": "TODAY",
+    "nightlyAvg": "Nightly avg."
   },
   "mobileNav": {
     "sortFilter": "Sort & Filter",

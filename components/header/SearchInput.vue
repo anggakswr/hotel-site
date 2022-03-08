@@ -7,13 +7,12 @@
 
     <input
       id="dont-hide"
+      v-model="inputVal"
       type="text"
       class="w-full h-50px rounded-3px pr-18px pl-34px border border-gray-brand text-sm text-form"
       placeholder="Singapore, Singapore"
       @focusin="getHotels"
     />
-    <!-- @blur="cities = []"
-    /> -->
 
     <div
       v-if="cities.length"
@@ -24,7 +23,7 @@
         v-for="city in cities"
         :key="'city-' + city.cityCode"
         class="p-2.5 text-sm text-form w-full flex items-center gap-x-2.5"
-        @click="goTo(city.cityCode)"
+        @click="goTo(city)"
       >
         <img src="/img/header/location2.png" alt="location" />
 
@@ -39,6 +38,7 @@ export default {
   data() {
     return {
       cities: [],
+      inputVal: '',
     }
   },
   beforeDestroy() {
@@ -61,9 +61,11 @@ export default {
         // do nothing
       }
     },
-    goTo(code) {
-      this.$router.push({ query: { city: code } })
+    goTo(obj) {
+      this.$router.push({ query: { city: obj.cityCode } })
       this.cities = []
+      this.inputVal = obj.label
+      this.$store.commit('setCountry', obj.label)
     },
     windowOnClickHandler(e) {
       if (e.target.id !== 'dont-hide') {

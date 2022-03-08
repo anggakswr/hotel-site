@@ -11,10 +11,12 @@
         v-if="isDiscount"
         class="text-10px md:text-xs text-white font-bold bg-lightblue px-5px mb-5px"
       >
-        SAVE {{ discount }}% TODAY!
+        {{ $t('indexPage.SAVE') }} {{ discount }}% {{ $t('indexPage.TODAY') }}!
       </span>
 
-      <p class="text-10px md:text-xs text-night">Nightly avg.</p>
+      <p class="text-10px md:text-xs text-night">
+        {{ $t('indexPage.nightlyAvg') }}
+      </p>
 
       <p class="flex items-end">
         <span

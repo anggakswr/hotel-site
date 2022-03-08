@@ -1,7 +1,7 @@
 <template>
   <footer class="mt-23px md:mt-38px">
     <section
-      class="bg-form box-center pt-18px md:pt-30px pb-4 md:pb-5 text-white gap-x-10"
+      class="bg-form box-between pt-18px md:pt-30px pb-4 md:pb-5 text-white gap-x-10 px-50px"
     >
       <NuxtLink to="#" class="text-xs md:text-sm">FAQ</NuxtLink>
       <NuxtLink to="#" class="text-xs md:text-sm">Terms of Use</NuxtLink>
