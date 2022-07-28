@@ -1,4 +1,4 @@
-# rakuten-xchange
+# hotel-site
 
 ## Build Setup
 
